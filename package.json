@@ -9,7 +9,14 @@
   "scripts": {
     "dev": "concurrently \"npm run watch\" \"npm run assets\" --names node,webpack --prefix name",
     "assets": "webpack -w --display-max-modules 0",
-    "watch": "nodemon ./start.js --ignore public/"
+    "watch": "nodemon ./start.js --ignore public/",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "keywords": [],
   "author": "Clayton Hadaway <me@hadaclay.com>",
@@ -41,6 +48,9 @@
   },
   "devDependencies": {
     "concurrently": "^3.5.0",
-    "nodemon": "^1.11.0"
+    "husky": "^0.14.3",
+    "lint-staged": "^4.0.2",
+    "nodemon": "^1.11.0",
+    "prettier": "^1.5.3"
   }
 }
