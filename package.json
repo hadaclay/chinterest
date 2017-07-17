@@ -1,0 +1,12 @@
+{
+  "name": "chinterest",
+  "version": "0.1.0",
+  "description": "Share images of chins and see chins others have linked",
+  "main": "start.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Clayton Hadaway <me@hadaclay.com>",
+  "license": "MIT"
+}
