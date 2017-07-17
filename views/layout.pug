@@ -1,0 +1,49 @@
+doctype html
+html
+  head
+    title= `${title} | Chinterest`
+    link(rel='stylesheet' href='/dist/style.css')
+    link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+  body
+    block header
+      .container
+        nav.navbar
+          .navbar-brand
+            h3.navbar-item Chinterest
+            .navbar-burger.burger(data-target='navMenu')
+              span
+              span
+              span
+          #navMenu.navbar-menu
+            .navbar-start
+              a.navbar-item(href='/') All
+            .navbar-end
+              if user
+              else
+                a.navbar-item(href='/auth/twitter')
+                  i.fa.fa-twitter Login
+      
+    block messages
+      if locals.flashes
+        - const categories = Object.keys(locals.flashes)
+        each category in categories
+          each message in flashes[categories]
+            .notification(class=`${category}`)
+              p.flash-text!= message
+              button.delete(onClick='this.parentElement.remove()')
+    
+    #wrapper.content
+      block content
+    
+    footer.footer
+      .container
+        .content.has-text-centered
+          p Chinterest by 
+            a(href='https://hadaclay.com') @hadaclay
+          p
+            a(href='https://github.com/hadaclay/chinterest')
+              i.fa.fa-github.fa-2x
+          
+    block scripts
+      script(src='/dist/App.bundle.js')
