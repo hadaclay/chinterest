@@ -1,13 +1,22 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 
-const authController = require('../controllers/authController');
-const postController = require('../controllers/postController');
-const { catchErrors } = require('../handlers/errorHandlers');
+const authController = require("../controllers/authController");
+const postController = require("../controllers/postController");
+const { catchErrors } = require("../handlers/errorHandlers");
 
-router.get('/', postController.getRecentPosts);
+// Posts
+router.get("/", postController.getRecentPosts);
+router.get("/myposts", postController.getUserPosts);
 
-router.get('/auth/twitter', authController.login);
-router.get('/auth/twitter/callback', authController.login, authController.loginCallback);
+// Auth
+router.get("/auth/twitter", authController.login);
+router.get("/auth/twitter/callback", authController.login, (req, res) => {
+  res.redirect("/");
+});
+router.get("/authfailure", authController.loginFailure, (req, res) => {
+  res.redirect("/");
+});
+router.get("/logout", authController.logout);
 
 module.exports = router;

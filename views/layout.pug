@@ -18,11 +18,32 @@ html
           #navMenu.navbar-menu
             .navbar-start
               a.navbar-item(href='/') All
+              if user
+                a.navbar-item(href='/myposts') My Chins
+                a#addPostToggle.navbar-item Add Chin
+                  #addPostModal.modal
+                    .modal-background
+                    .modal-content
+                      .box
+                        h1.title.has-text-centered Add Post
+                        form.form(action='/newpost' method='POST')
+                          label.label(for='url') URL
+                          p.control
+                            input.input(name='url')
+                          label.label(for='description') Description
+                          p.control
+                            input.input(name='description')
+                    button.modal-close.is-large
             .navbar-end
               if user
+                .navbar-item
+                  p.control
+                    a.button(href='/logout') Logout
               else
-                a.navbar-item(href='/auth/twitter')
-                  i.fa.fa-twitter Login
+                .navbar-item
+                  p.control
+                    a.button(href='/auth/twitter')
+                      i.fa.fa-twitter Login
       
     block messages
       if locals.flashes

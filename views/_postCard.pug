@@ -1,0 +1,11 @@
+mixin postCard(post = {})
+  .tile.is-parent
+    img(src=post.img_url)
+    .post-info
+      nav.level
+        .level-left
+          .level-item
+            img(src=post.author.profile_img)
+        .level-right
+          .level-item
+            a.button(href=`/like/${post._id}`)
