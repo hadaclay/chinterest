@@ -14,7 +14,7 @@
   },
   "lint-staged": {
     "*.js": [
-      "prettier --write",
+      "prettier --single-quote --write",
       "git add"
     ]
   },
@@ -35,7 +35,9 @@
     "es6-promisify": "^5.0.0",
     "express": "^4.15.3",
     "express-session": "^1.15.3",
+    "express-validator": "^3.2.1",
     "extract-text-webpack-plugin": "^3.0.0",
+    "helmet": "^3.6.1",
     "mongoose": "^4.11.3",
     "mongoose-mongodb-errors": "0.0.2",
     "node-sass": "^4.5.3",

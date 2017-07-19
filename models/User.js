@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
-const mongodbErrorHandler = require("mongoose-mongodb-errors");
+const mongodbErrorHandler = require('mongoose-mongodb-errors');
 
 const userSchema = new mongoose.Schema({
   twitter_id: {
@@ -17,8 +17,8 @@ const userSchema = new mongoose.Schema({
   },
   likedPosts: {
     type: [mongoose.Schema.ObjectId],
-    ref: "Post"
+    ref: 'Post'
   }
 });
 
-module.exports = mongoose.model("User", userSchema);
+module.exports = mongoose.model('User', userSchema);

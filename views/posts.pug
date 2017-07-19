@@ -3,6 +3,7 @@ extends layout
 include _postCard
 
 block content
-  .tile.is-ancestor
-    each post in posts
-      +postCard(post)
+  .container
+    .tile.is-ancestor
+      each post in posts
+        +postCard(post)

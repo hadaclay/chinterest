@@ -10,7 +10,8 @@ html
       .container
         nav.navbar
           .navbar-brand
-            h3.navbar-item Chinterest
+            .navbar-item
+              img(src='logo.png' width='112' height='28')
             .navbar-burger.burger(data-target='navMenu')
               span
               span
@@ -25,14 +26,19 @@ html
                     .modal-background
                     .modal-content
                       .box
-                        h1.title.has-text-centered Add Post
+                        h1.title.has-text-centered Add Chin
                         form.form(action='/newpost' method='POST')
-                          label.label(for='url') URL
-                          p.control
-                            input.input(name='url')
-                          label.label(for='description') Description
-                          p.control
-                            input.input(name='description')
+                          .field
+                            label.label(for='url') Image URL
+                            p.control
+                              input.input(name='url' required)
+                          .field
+                            label.label(for='description') Description
+                            p.control
+                              textarea.textarea(name='description' required)
+                          .field
+                            p.control
+                              button.button.is-primary Submit
                     button.modal-close.is-large
             .navbar-end
               if user
@@ -42,8 +48,8 @@ html
               else
                 .navbar-item
                   p.control
-                    a.button(href='/auth/twitter')
-                      i.fa.fa-twitter Login
+                    a.button(href='/auth/twitter') Login with   
+                      i.fa.fa-twitter
       
     block messages
       if locals.flashes

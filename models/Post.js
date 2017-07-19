@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
 const postSchema = new mongoose.Schema({
@@ -12,7 +12,7 @@ const postSchema = new mongoose.Schema({
   },
   author: {
     type: mongoose.Schema.ObjectId,
-    ref: "User"
+    ref: 'User'
   },
   likes: {
     type: Number,
@@ -20,4 +20,4 @@ const postSchema = new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model("Post", postSchema);
+module.exports = mongoose.model('Post', postSchema);

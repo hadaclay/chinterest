@@ -9,3 +9,24 @@ body {
 #wrapper {
   flex: 1;
 }
+
+.box {
+  padding-top: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 0.25rem;
+}
+
+.tile {
+  flex-wrap: wrap;
+}
+
+.tile img {
+  border-radius: 5px;
+  object-fit: fill;
+}
+
+.post-info {
+  padding-left: 1em;
+  padding-right: 1em;
+}
