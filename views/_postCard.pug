@@ -1,17 +1,27 @@
 mixin postCard(post = {})
-  .tile.is-parent.is-3
-    .box
-      figure.image
-        img(src=post.img_url)
-      p #{post.description}
-      .post-info
-        nav.level
-          .level-left
-            .level-item
-              img(src=post.author.profile_img)
-          .level-right
-            .level-item
-              a.button(href=`/like/${post._id}`) #{post.likes} 
-                .fa.fa-heart
+  .grid-item
+    .card
+      .card-image
+        img(src=post.img_url onError='this.onerror=null;this.src="http://via.placeholder.com/222x218"')
+      .card-content
+        p.has-text-centered #{post.description}
+        .post-info
+          nav.level
+            .level-left
+              .level-item
+                a(href=`/userposts/${post.author._id}`)
+                  img(src=post.author.profile_img)
+            if user && post.author.equals(user._id)
+              .level-item
+                form(method='POST' action=`/api/delete/${post._id}`)
+                  button.delete.is-medium(type='submit')
+            .level-right
+              .level-item
+                if user 
+                  - const likedPosts = user.likedPosts.map(obj => obj.toString())
+                  - const heartClass = likedPosts.includes(post._id.toString()) ? 'hearted' : ''
+                  form(method='POST' action=`/api/like/${post._id}`)
+                    button.button(type='submit' name='heart') #{post.likes} &nbsp;
+                      .fa.fa-heart(class=heartClass)
               
               

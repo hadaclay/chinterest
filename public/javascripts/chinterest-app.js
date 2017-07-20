@@ -1,4 +1,6 @@
 import '../sass/style.scss';
+import Masonry from 'masonry-layout';
+import imagesLoaded from 'imagesloaded';
 
 const navbar_toggle = document.querySelector('.navbar-burger');
 const navbar_menu = document.getElementById('navMenu');
@@ -27,3 +29,10 @@ if (document.querySelector('#addPostToggle')) {
     document.querySelector('.modal').className = 'modal';
   });
 }
+
+const msnry = new Masonry('.grid', { percentPosition: true });
+imagesLoaded('.grid', () => {
+  msnry.layout();
+});
+
+//msnry.layout();

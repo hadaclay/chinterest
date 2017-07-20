@@ -4,6 +4,7 @@ include _postCard
 
 block content
   .container
-    .tile.is-ancestor
+    .grid-sizer
+    .grid
       each post in posts
         +postCard(post)

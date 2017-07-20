@@ -6,8 +6,27 @@ body {
   flex-direction: column;
 }
 
+a {
+  color: #bd081c;
+}
+
 #wrapper {
   flex: 1;
+}
+
+.grid {
+  max-width: 1376px;
+}
+
+.grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.grid-sizer,
+.grid-item {
+  width: 25%;
 }
 
 .box {
@@ -17,16 +36,6 @@ body {
   padding-bottom: 0.25rem;
 }
 
-.tile {
-  flex-wrap: wrap;
-}
-
-.tile img {
-  border-radius: 5px;
-  object-fit: fill;
-}
-
-.post-info {
-  padding-left: 1em;
-  padding-right: 1em;
+.hearted {
+  color: #bd081c;
 }

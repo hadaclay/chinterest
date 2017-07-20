@@ -11,7 +11,7 @@ html
         nav.navbar
           .navbar-brand
             .navbar-item
-              img(src='logo.png' width='112' height='28')
+              img(src='img/logo.png' width='112' height='28')
             .navbar-burger.burger(data-target='navMenu')
               span
               span
@@ -26,19 +26,20 @@ html
                     .modal-background
                     .modal-content
                       .box
-                        h1.title.has-text-centered Add Chin
-                        form.form(action='/newpost' method='POST')
-                          .field
-                            label.label(for='url') Image URL
-                            p.control
-                              input.input(name='url' required)
-                          .field
-                            label.label(for='description') Description
-                            p.control
-                              textarea.textarea(name='description' required)
-                          .field
-                            p.control
-                              button.button.is-primary Submit
+                        .column 
+                          h1.title.has-text-centered Add Chin
+                          form.form(action='/newpost' method='POST')
+                            .field
+                              label.label(for='url') Image URL
+                              p.control
+                                input.input(name='url' required)
+                            .field
+                              label.label(for='description') Description
+                              p.control
+                                textarea.textarea(name='description' required)
+                            .field
+                              p.control
+                                button.button.is-primary Submit
                     button.modal-close.is-large
             .navbar-end
               if user
