@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const Post = mongoose.model('Post');
 const User = mongoose.model('User');
 
+// Home Page
 exports.getRecentPosts = async (req, res) => {
   const POST_LIMIT = 50;
 
@@ -13,6 +14,7 @@ exports.getRecentPosts = async (req, res) => {
   res.render('posts', { title: 'All Posts', posts });
 };
 
+// Current User Page
 exports.getMyPosts = async (req, res) => {
   const posts = await Post.find({ author: req.user._id })
     .sort({ _id: '-1' })
@@ -21,6 +23,7 @@ exports.getMyPosts = async (req, res) => {
   res.render('posts', { title: 'My Posts', posts });
 };
 
+// Get Posts from specific user
 exports.getUserPosts = async (req, res) => {
   const posts = await Post.find({ author: req.params.id })
     .sort({ _id: '-1' })
