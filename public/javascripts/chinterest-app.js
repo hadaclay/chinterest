@@ -30,9 +30,10 @@ if (document.querySelector('#addPostToggle')) {
   });
 }
 
-const msnry = new Masonry('.grid', { percentPosition: true });
+const msnry = new Masonry('.grid', {
+  percentPosition: true
+});
+
 imagesLoaded('.grid', () => {
   msnry.layout();
 });
-
-//msnry.layout();

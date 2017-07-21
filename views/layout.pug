@@ -8,10 +8,10 @@ html
   body
     block header
       .container
-        nav.navbar
+        nav.navbar.has-shadow
           .navbar-brand
             .navbar-item
-              img(src='img/logo.png' width='112' height='28')
+              img(src='/img/logo.png' width='112' height='28')
             .navbar-burger.burger(data-target='navMenu')
               span
               span
@@ -21,35 +21,35 @@ html
               a.navbar-item(href='/') All
               if user
                 a.navbar-item(href='/myposts') My Chins
-                a#addPostToggle.navbar-item Add Chin
-                  #addPostModal.modal
-                    .modal-background
-                    .modal-content
-                      .box
-                        .column 
-                          h1.title.has-text-centered Add Chin
-                          form.form(action='/newpost' method='POST')
-                            .field
-                              label.label(for='url') Image URL
-                              p.control
-                                input.input(name='url' required)
-                            .field
-                              label.label(for='description') Description
-                              p.control
-                                textarea.textarea(name='description' required)
-                            .field
-                              p.control
-                                button.button.is-primary Submit
-                    button.modal-close.is-large
+                  a#addPostToggle.navbar-item Add Chin
+                    #addPostModal.modal
+                      .modal-background
+                      .modal-content
+                        .box
+                          .column 
+                            h1.title.has-text-centered Add Chin
+                            form.form(action='/newpost' method='POST')
+                              .field
+                                label.label(for='url') Image URL
+                                p.control
+                                  input.input(name='url' required)
+                              .field
+                                label.label(for='description') Description
+                                p.control
+                                  textarea.textarea(name='description' required)
+                              .field
+                                p.control
+                                  button.button.is-danger.is-outlined Submit
+                      button.modal-close.is-large
             .navbar-end
               if user
                 .navbar-item
                   p.control
-                    a.button(href='/logout') Logout
+                    a.red-button.button(href='/logout') Logout
               else
                 .navbar-item
                   p.control
-                    a.button(href='/auth/twitter') Login with   
+                    a.red-button.button(href='/auth/twitter') Login with &nbsp;
                       i.fa.fa-twitter
       
     block messages
@@ -69,6 +69,7 @@ html
         .content.has-text-centered
           p Chinterest by 
             a(href='https://hadaclay.com') @hadaclay
+          p All images are property of their respective copyright holders.
           p
             a(href='https://github.com/hadaclay/chinterest')
               i.fa.fa-github.fa-2x

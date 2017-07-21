@@ -2,7 +2,8 @@ mixin postCard(post = {})
   .grid-item
     .card
       .card-image
-        img(src=post.img_url onError='this.onerror=null;this.src="http://via.placeholder.com/222x218"')
+        a(href=post.img_url)
+          img(src=post.img_url alt=post.description onError='this.onerror=null;this.src="http://via.placeholder.com/222x218"')
       .card-content
         p.has-text-centered #{post.description}
         .post-info
@@ -10,7 +11,7 @@ mixin postCard(post = {})
             .level-left
               .level-item
                 a(href=`/userposts/${post.author._id}`)
-                  img(src=post.author.profile_img)
+                  img.avatar(src=post.author.profile_img)
             if user && post.author.equals(user._id)
               .level-item
                 form(method='POST' action=`/api/delete/${post._id}`)

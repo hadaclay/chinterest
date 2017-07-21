@@ -10,8 +10,21 @@ a {
   color: #bd081c;
 }
 
+.red-button {
+  color: #bd081c;
+  border-color: #bd081c;
+}
+
 #wrapper {
   flex: 1;
+}
+
+.has-shadow {
+   box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1);
+}
+
+.avatar {
+  border-radius: 50%;
 }
 
 .grid {
@@ -27,15 +40,29 @@ a {
 .grid-sizer,
 .grid-item {
   width: 25%;
+  padding-bottom: 1rem;
 }
 
-.box {
-  padding-top: 0;
-  padding-left: 0;
-  padding-right: 0;
-  padding-bottom: 0.25rem;
+.gutter-sizer {
+  width: 4%;
+}
+
+.card {
+  border-radius: 5px;
+}
+
+.card-image {
+  border-radius: 5px;
+}
+
+.card-image img {
+  border-radius: 5px;
 }
 
 .hearted {
   color: #bd081c;
+}
+
+.footer {
+  padding: 2rem 1.5rem 2rem;
 }
